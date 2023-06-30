@@ -6,7 +6,7 @@ API
 Cores
 -----
 
-.. autoclass:: Downloader
+.. autoclass:: core.Downloader
    :members:
    :undoc-members:
 
