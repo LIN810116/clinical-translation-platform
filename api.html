@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API &mdash; digital-twin-platform  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Digital Twin Platform API documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            digital-twin-platform
+              <img src="_static/abi-vc-rgb.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#cores">Cores</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dtp.Downloader"><code class="docutils literal notranslate"><span class="pre">Downloader</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#dtp.Downloader.download_dataset"><code class="docutils literal notranslate"><span class="pre">Downloader.download_dataset()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#gen3">Gen3</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dtp.Auth"><code class="docutils literal notranslate"><span class="pre">Auth</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#dtp.Auth.curl"><code class="docutils literal notranslate"><span class="pre">Auth.curl()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dtp.Auth.get_access_token"><code class="docutils literal notranslate"><span class="pre">Auth.get_access_token()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dtp.Auth.get_access_token_from_wts"><code class="docutils literal notranslate"><span class="pre">Auth.get_access_token_from_wts()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dtp.Auth.refresh_access_token"><code class="docutils literal notranslate"><span class="pre">Auth.refresh_access_token()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#dtp.Gen3Convertor"><code class="docutils literal notranslate"><span class="pre">Gen3Convertor</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#dtp.Gen3Convertor.execute"><code class="docutils literal notranslate"><span class="pre">Gen3Convertor.execute()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dtp.Gen3Convertor.read_excel"><code class="docutils literal notranslate"><span class="pre">Gen3Convertor.read_excel()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dtp.Gen3Convertor.set_schema_dir"><code class="docutils literal notranslate"><span class="pre">Gen3Convertor.set_schema_dir()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#dtp.Exporter"><code class="docutils literal notranslate"><span class="pre">Exporter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#dtp.Exporter.export_node"><code class="docutils literal notranslate"><span class="pre">Exporter.export_node()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dtp.Exporter.export_record"><code class="docutils literal notranslate"><span class="pre">Exporter.export_record()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dtp.Exporter.save"><code class="docutils literal notranslate"><span class="pre">Exporter.save()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#dtp.Queryer"><code class="docutils literal notranslate"><span class="pre">Queryer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#dtp.Queryer.get_node_records"><code class="docutils literal notranslate"><span class="pre">Queryer.get_node_records()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dtp.Queryer.get_programs"><code class="docutils literal notranslate"><span class="pre">Queryer.get_programs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dtp.Queryer.get_projects"><code class="docutils literal notranslate"><span class="pre">Queryer.get_projects()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dtp.Queryer.graphql_query"><code class="docutils literal notranslate"><span class="pre">Queryer.graphql_query()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#dtp.Gen3Submitter"><code class="docutils literal notranslate"><span class="pre">Gen3Submitter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#dtp.Gen3Submitter.submit_record"><code class="docutils literal notranslate"><span class="pre">Gen3Submitter.submit_record()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#irods">iRods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dtp.IRODSAPI"><code class="docutils literal notranslate"><span class="pre">IRODSAPI</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#dtp.IRODSAPI.download_data"><code class="docutils literal notranslate"><span class="pre">IRODSAPI.download_data()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">digital-twin-platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">API</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/api.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-dtp">
+<span id="api"></span><h1>API<a class="headerlink" href="#module-dtp" title="Permalink to this heading"></a></h1>
+<section id="cores">
+<h2>Cores<a class="headerlink" href="#cores" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="dtp.Downloader">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dtp.</span></span><span class="sig-name descname"><span class="pre">Downloader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_storage_config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gen3_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dtp.Downloader" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="dtp.Downloader.download_dataset">
+<span class="sig-name descname"><span class="pre">download_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dtp.Downloader.download_dataset" title="Permalink to this definition"></a></dt>
+<dd><p>Downloading dataset (including data from PACS/iRods &amp; metadata from Gen3) in SDS format</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset_id</strong> (<em>str</em>) – Dataset id/name on Gen3</p></li>
+<li><p><strong>dest</strong> (<em>string</em>) – Path to the save folder</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="gen3">
+<h2>Gen3<a class="headerlink" href="#gen3" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="dtp.Auth">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dtp.</span></span><span class="sig-name descname"><span class="pre">Auth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">endpoint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refresh_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refresh_token</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">idp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_scopes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dtp.Auth" title="Permalink to this definition"></a></dt>
+<dd><p>Class for Gen3 Authentication inherited from the offical Gen3 API’s Gen3 Auth Helper
+<a class="reference external" href="https://gen3sdk-python.readthedocs.io/en/latest/auth.html">https://gen3sdk-python.readthedocs.io/en/latest/auth.html</a>
+Gen3 auth helper class for use with requests auth.</p>
+<p>Implements requests.auth.AuthBase in order to support JWT authentication.
+Generates access tokens from the provided refresh token file or string.
+Automatically refreshes access tokens when they expire.</p>
+<dl>
+<dt>Args:</dt><dd><dl class="simple">
+<dt>refresh_file (str, opt): The file containing the downloaded JSON web token. Optional if working in a Gen3 Workspace.</dt><dd><p>Defaults to (env[“GEN3_API_KEY”] || “credentials”) if refresh_token and idp not set.
+Includes ~/.gen3/ in search path if value does not include /.
+Interprets “idp://wts/&lt;idp&gt;” as an idp.
+Interprets “accesstoken:///&lt;token&gt;” as an access token</p>
+</dd>
+</dl>
+<p>refresh_token (str, opt): The JSON web token. Optional if working in a Gen3 Workspace.
+idp (str, opt): If working in a Gen3 Workspace, the IDP to use can be specified -</p>
+<blockquote>
+<div><p>“local” indicates the local environment fence idp</p>
+</div></blockquote>
+<dl class="simple">
+<dt>client_credentials (tuple, opt): The (client_id, client_secret) credentials for an OIDC client</dt><dd><p>that has the ‘client_credentials’ grant, allowing it to obtain access tokens.</p>
+</dd>
+<dt>client_scopes (str, opt): Space-separated list of scopes requested for access tokens obtained from client</dt><dd><p>credentials. Default: “user data openid”</p>
+</dd>
+</dl>
+</dd>
+<dt>Examples:</dt><dd><p>This generates the Gen3Auth class pointed at the sandbox commons while
+using the credentials.json downloaded from the commons profile page
+and installed in ~/.gen3/credentials.json</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">auth</span> <span class="o">=</span> <span class="n">Gen3Auth</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>or use ~/.gen3/crdc.json:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">auth</span> <span class="o">=</span> <span class="n">Gen3Auth</span><span class="p">(</span><span class="n">refresh_file</span><span class="o">=</span><span class="s2">&quot;crdc&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>or use some arbitrary file:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">auth</span> <span class="o">=</span> <span class="n">Gen3Auth</span><span class="p">(</span><span class="n">refresh_file</span><span class="o">=</span><span class="s2">&quot;./key.json&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>or set the GEN3_API_KEY environment variable rather
+than pass the refresh_file argument to the Gen3Auth
+constructor.</p>
+<p>If working with an OIDC client that has the ‘client_credentials’ grant, allowing it to obtain
+access tokens, provide the client ID and secret:</p>
+<p>Note: client secrets should never be hardcoded!</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">auth</span> <span class="o">=</span> <span class="n">Gen3Auth</span><span class="p">(</span>
+<span class="go">    endpoint=&quot;https://datacommons.example&quot;,</span>
+<span class="go">    client_credentials=(&quot;client ID&quot;, os.environ[&quot;GEN3_OIDC_CLIENT_CREDS_SECRET&quot;])</span>
+<span class="go">)</span>
+</pre></div>
+</div>
+<p>If working in a Gen3 Workspace, initialize as follows:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">auth</span> <span class="o">=</span> <span class="n">Gen3Auth</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="dtp.Auth.curl">
+<span class="sig-name descname"><span class="pre">curl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dtp.Auth.curl" title="Permalink to this definition"></a></dt>
+<dd><p>Curl the given endpoint - ex: gen3 curl /user/user.  Return requests.Response</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>path (str): path under the commons to curl (/user/user, /index/index, /authz/mapping, …)
+request (str in GET|POST|PUT|DELETE): default to GET if data is not set, else default to POST
+data (str): json string or “&#64;filename” of a json file</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dtp.Auth.get_access_token">
+<span class="sig-name descname"><span class="pre">get_access_token</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dtp.Auth.get_access_token" title="Permalink to this definition"></a></dt>
+<dd><p>Get the access token - auto refresh if within 5 minutes of expiration</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dtp.Auth.get_access_token_from_wts">
+<span class="sig-name descname"><span class="pre">get_access_token_from_wts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">endpoint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dtp.Auth.get_access_token_from_wts" title="Permalink to this definition"></a></dt>
+<dd><p>Try to fetch an access token for the given idp from the wts
+in the given namespace.  If idp is not set, then default to “local”</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dtp.Auth.refresh_access_token">
+<span class="sig-name descname"><span class="pre">refresh_access_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">endpoint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dtp.Auth.refresh_access_token" title="Permalink to this definition"></a></dt>
+<dd><p>Get a new access token</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dtp.Gen3Convertor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dtp.</span></span><span class="sig-name descname"><span class="pre">Gen3Convertor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">project</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">experiment</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'2.0.0'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dtp.Gen3Convertor" title="Permalink to this definition"></a></dt>
+<dd><p>Converting the metadata from SPARC dataset structure (SDS) to Gen3 submittable structure in json format</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="dtp.Gen3Convertor.execute">
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest_dir</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dtp.Gen3Convertor.execute" title="Permalink to this definition"></a></dt>
+<dd><p>Converting metadata</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source_dir</strong> (<em>str</em><em> or  </em><em>pathlib.Path object</em>) – Path to the source (SDS) directory</p></li>
+<li><p><strong>dest_dir</strong> (<em>str</em><em> or </em><em>pathlib.Path object</em>) – Path to the destination (Gen3) directory</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dtp.Gen3Convertor.read_excel">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">read_excel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sheet_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dtp.Gen3Convertor.read_excel" title="Permalink to this definition"></a></dt>
+<dd><p>Reading Excel data as a python dataframe object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<em>str</em><em> or </em><em>pathlib.Path object</em>) – Path to the Excel file</p></li>
+<li><p><strong>sheet_name</strong> (<em>str</em>) – Excel sheet name</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Data in dataframe object format</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dtp.Gen3Convertor.set_schema_dir">
+<span class="sig-name descname"><span class="pre">set_schema_dir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dtp.Gen3Convertor.set_schema_dir" title="Permalink to this definition"></a></dt>
+<dd><p>Setting the SDS schema directory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em>) – Path to the SDS schema directory</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dtp.Exporter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dtp.</span></span><span class="sig-name descname"><span class="pre">Exporter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">auth</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dtp.Exporter" title="Permalink to this definition"></a></dt>
+<dd><p>Class for exporting Gen3 metadata</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="dtp.Exporter.export_node">
+<span class="sig-name descname"><span class="pre">export_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">program</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">project</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fileformat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dtp.Exporter.export_node" title="Permalink to this definition"></a></dt>
+<dd><p>Exporting all records in a single Gen3 node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>program</strong> (<em>str</em>) – Program name</p></li>
+<li><p><strong>project</strong> (<em>str</em>) – Project</p></li>
+<li><p><strong>node_type</strong> (<em>str</em>) – Node name</p></li>
+<li><p><strong>fileformat</strong> (<em>str</em>) – Exported file format (json or tsv)</p></li>
+<li><p><strong>filename</strong> (<em>str</em>) – Exported filename</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of records (metadata) in dictionary format</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dtp.Exporter.export_record">
+<span class="sig-name descname"><span class="pre">export_record</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">program</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">project</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uuid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fileformat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dtp.Exporter.export_record" title="Permalink to this definition"></a></dt>
+<dd><p>Exporting the metadata in a single record</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>program</strong> (<em>str</em>) – Program name</p></li>
+<li><p><strong>project</strong> (<em>str</em>) – Project</p></li>
+<li><p><strong>uuid</strong> (<em>str</em>) – Record UUID</p></li>
+<li><p><strong>fileformat</strong> (<em>str</em>) – Exported file format (json or tsv)</p></li>
+<li><p><strong>filename</strong> (<em>str</em>) – Exported filename</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Metadata in a single record</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dtp.Exporter.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fileformat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dtp.Exporter.save" title="Permalink to this definition"></a></dt>
+<dd><p>Saving the metadata (dict) in json format</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>dict</em>) – metadata</p></li>
+<li><p><strong>fileformat</strong> (<em>str</em>) – file format (currently only json)</p></li>
+<li><p><strong>path</strong> (<em>str</em>) – Path the save file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dtp.Queryer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dtp.</span></span><span class="sig-name descname"><span class="pre">Queryer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">auth</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dtp.Queryer" title="Permalink to this definition"></a></dt>
+<dd><p>Class for querying Gen3.
+Also accepts queries in GraphQL syntax.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="dtp.Queryer.get_node_records">
+<span class="sig-name descname"><span class="pre">get_node_records</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">program</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">project</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dtp.Queryer.get_node_records" title="Permalink to this definition"></a></dt>
+<dd><p>Getting all the records in a Gen3 node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node</strong> (<em>str</em>) – Name of the target node</p></li>
+<li><p><strong>program</strong> (<em>str</em>) – program name</p></li>
+<li><p><strong>project</strong> (<em>str</em>) – project name</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of records in dictionary format</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dtp.Queryer.get_programs">
+<span class="sig-name descname"><span class="pre">get_programs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dtp.Queryer.get_programs" title="Permalink to this definition"></a></dt>
+<dd><p>Getting all programs that the user have access to</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of programs</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dtp.Queryer.get_projects">
+<span class="sig-name descname"><span class="pre">get_projects</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">program</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dtp.Queryer.get_projects" title="Permalink to this definition"></a></dt>
+<dd><p>Getting the projects by program name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>program</strong> (<em>str</em>) – Name of a Gen3 program</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of projects</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dtp.Queryer.graphql_query">
+<span class="sig-name descname"><span class="pre">graphql_query</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query_string</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variables</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dtp.Queryer.graphql_query" title="Permalink to this definition"></a></dt>
+<dd><p>Sending a GraphQL query to Gen3</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query_string</strong> (<em>string</em>) – query in GraphQL syntax</p></li>
+<li><p><strong>variables</strong> (<em>dict</em>) – query variables (optional)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>query response</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dtp.Gen3Submitter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dtp.</span></span><span class="sig-name descname"><span class="pre">Gen3Submitter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">endpoint</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">credentials</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dtp.Gen3Submitter" title="Permalink to this definition"></a></dt>
+<dd><p>Class for Gen3 submission</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="dtp.Gen3Submitter.submit_record">
+<span class="sig-name descname"><span class="pre">submit_record</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">program</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">project</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dtp.Gen3Submitter.submit_record" title="Permalink to this definition"></a></dt>
+<dd><p>Submitting metadata to Gen3</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>program</strong> (<em>str</em>) – Program name</p></li>
+<li><p><strong>project</strong> (<em>str</em>) – Project name</p></li>
+<li><p><strong>file</strong> (<em>str</em>) – Path to the metadata file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="irods">
+<h2>iRods<a class="headerlink" href="#irods" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="dtp.IRODSAPI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dtp.</span></span><span class="sig-name descname"><span class="pre">IRODSAPI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dtp.IRODSAPI" title="Permalink to this definition"></a></dt>
+<dd><p>Class for interacting with iRODS server</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="dtp.IRODSAPI.download_data">
+<span class="sig-name descname"><span class="pre">download_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dtp.IRODSAPI.download_data" title="Permalink to this definition"></a></dt>
+<dd><p>Downloading data from iRODS</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>str</em>) – iRODS collection/Dataset name in the iRODS zone</p></li>
+<li><p><strong>save_dir</strong> (<em>str</em>) – path to the save directory</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Digital Twin Platform API documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Chinchien Lin, Thiranja Prasad Babarenda Gamage.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
