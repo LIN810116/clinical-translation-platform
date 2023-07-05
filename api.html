@@ -75,11 +75,11 @@
 <li class="toctree-l4"><a class="reference internal" href="#dtp.Exporter.save"><code class="docutils literal notranslate"><span class="pre">Exporter.save()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#dtp.Queryer"><code class="docutils literal notranslate"><span class="pre">Queryer</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#dtp.Queryer.get_node_records"><code class="docutils literal notranslate"><span class="pre">Queryer.get_node_records()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#dtp.Queryer.get_programs"><code class="docutils literal notranslate"><span class="pre">Queryer.get_programs()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#dtp.Queryer.get_projects"><code class="docutils literal notranslate"><span class="pre">Queryer.get_projects()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#dtp.Queryer.graphql_query"><code class="docutils literal notranslate"><span class="pre">Queryer.graphql_query()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dtp.Querier"><code class="docutils literal notranslate"><span class="pre">Querier</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#dtp.Querier.get_node_records"><code class="docutils literal notranslate"><span class="pre">Querier.get_node_records()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dtp.Querier.get_programs"><code class="docutils literal notranslate"><span class="pre">Querier.get_programs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dtp.Querier.get_projects"><code class="docutils literal notranslate"><span class="pre">Querier.get_projects()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dtp.Querier.graphql_query"><code class="docutils literal notranslate"><span class="pre">Querier.graphql_query()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#dtp.Gen3Submitter"><code class="docutils literal notranslate"><span class="pre">Gen3Submitter</span></code></a><ul>
@@ -373,13 +373,13 @@ in the given namespace.  If idp is not set, then default to “local”</p>
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="dtp.Queryer">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dtp.</span></span><span class="sig-name descname"><span class="pre">Queryer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">auth</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dtp.Queryer" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="dtp.Querier">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dtp.</span></span><span class="sig-name descname"><span class="pre">Querier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">auth</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dtp.Querier" title="Permalink to this definition"></a></dt>
 <dd><p>Class for querying Gen3.
 Also accepts queries in GraphQL syntax.</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="dtp.Queryer.get_node_records">
-<span class="sig-name descname"><span class="pre">get_node_records</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">program</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">project</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dtp.Queryer.get_node_records" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="dtp.Querier.get_node_records">
+<span class="sig-name descname"><span class="pre">get_node_records</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">program</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">project</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dtp.Querier.get_node_records" title="Permalink to this definition"></a></dt>
 <dd><p>Getting all the records in a Gen3 node</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -399,8 +399,8 @@ Also accepts queries in GraphQL syntax.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="dtp.Queryer.get_programs">
-<span class="sig-name descname"><span class="pre">get_programs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dtp.Queryer.get_programs" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="dtp.Querier.get_programs">
+<span class="sig-name descname"><span class="pre">get_programs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dtp.Querier.get_programs" title="Permalink to this definition"></a></dt>
 <dd><p>Getting all programs that the user have access to</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -413,8 +413,8 @@ Also accepts queries in GraphQL syntax.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="dtp.Queryer.get_projects">
-<span class="sig-name descname"><span class="pre">get_projects</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">program</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dtp.Queryer.get_projects" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="dtp.Querier.get_projects">
+<span class="sig-name descname"><span class="pre">get_projects</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">program</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dtp.Querier.get_projects" title="Permalink to this definition"></a></dt>
 <dd><p>Getting the projects by program name</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -430,8 +430,8 @@ Also accepts queries in GraphQL syntax.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="dtp.Queryer.graphql_query">
-<span class="sig-name descname"><span class="pre">graphql_query</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query_string</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variables</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dtp.Queryer.graphql_query" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="dtp.Querier.graphql_query">
+<span class="sig-name descname"><span class="pre">graphql_query</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query_string</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variables</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dtp.Querier.graphql_query" title="Permalink to this definition"></a></dt>
 <dd><p>Sending a GraphQL query to Gen3</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
